@@ -10,7 +10,7 @@ class FundamentalFactorAlphaModel(AlphaModel):
         weights = [quality_weight, value_weight, size_weight]
         weights = [float(i) / sum(weights) for i in weights]
 
-        self.quality_weight = weights[0]
+        self.quality_weight = weights[1]
         self.value_weight[1]
         self.size_weight[2]
 
@@ -51,7 +51,7 @@ class FundamentalFactorAlphaModel(AlphaModel):
         for symbol, value in quality_scores.items():
             quality_rank = value
             value_rank = value_scores[symbol]
-            size_rank = size_scores[symnol]
+            size_rank = size_scores[symbol]
             scores[
                 symbol] = quality_rank * self.quality_weight + value_rank * self.value_weight + size_rank * self.size_weight
 
@@ -139,7 +139,7 @@ class FundamentalFactorAlphaModel(AlphaModel):
         for symbol, value in quality_scores.items():
             quality_rank = value
             value_rank = value_scores[symbol]
-            size_rank = size_scores[symnol]
+            size_rank = size_scores[symbol]
             scores[symbol] = quality_rank*self.quality_weight + value_rank*self.value_weight + size_rank*self.size_weight
 
         sorted_stock = sorted(scores.items(), key = lambda tup : tup[1], reverse=False)
