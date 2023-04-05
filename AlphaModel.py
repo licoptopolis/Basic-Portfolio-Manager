@@ -177,3 +177,4 @@ class FundamentalFactorAlphaModel(AlphaModel):
                 scores[symbol] = score
 
         return scores
+   
